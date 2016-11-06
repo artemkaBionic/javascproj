@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<link lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="final.js"></script>
+
+
+
+
+<link rel="stylesheet" href="table.css">
+</head>
+<body>
+<table id ="keks">
+    <tr id="first">
+        <th>Start Date</th>
+        <th>Maturity Date</th>
+        <th>rate</th>
+        <th>Sum</th>
+        <th>Days</th>
+        <th>Interest Rate</th>
+    </tr>
+
+
+    <script>
+
+        var options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            weekday: 'long',
+            timezone: 'UTC'
+        };
+
+        var doc = document.getElementById("first");
+
+         for(var i = 0; i < dd.length; i++ ){
+            var tr = document.createElement("tr");
+            tr.innerHTML = "<td>" + dd[i].start.toLocaleString("en-US", options)+"</td>" + "<td>" + dd[i].maturity.toLocaleString("en-US", options)+"</td>" + "<td>" + dd[i].rate+"</td>" + "<td>" + dd[i].sum+"</td>" + "<td>" + getDays(dd[i])+"</td>" + "<td>" + getIntersest(dd[i])+"</td>";
+            doc.parentNode.appendChild(tr);
+        }
+
+    </script>
+
+
+</table>
+
+
+<table id="sort">
+    Сортировать по:
+    <tr>
+        <td><label for="start">Start date</label></td>
+        <td><input id="start" type="checkbox" onclick="sortSt()"></td>
+    </tr>
+    <tr>
+        <td><label for="maturity">Maturity date</label></td>
+        <td><input id="maturity" type="checkbox" onclick="sortMt()"></td>
+    </tr>
+    <tr>
+        <td><label for="rate">Rate</label></td>
+        <td><input id="rate" type="checkbox" onclick="sortR()"></td>
+    </tr>
+    <tr>
+        <td><label for="sum">Sum</label></td>
+        <td><input id="sum" type="checkbox" onclick="sortSum()"></td>
+    </tr>
+    <tr>
+        <td><label for="days">Days</label></td>
+        <td><input id="days" type="checkbox" onclick="sortD()"></td>
+    </tr>
+    <tr>
+        <td><label for="interest">Interest Rate</label></td>
+        <td><input id="interest" type="checkbox" onclick="sortI()"></td>
+    </tr>
+</table>
+
+<span> Отфильтровать по:</span>
+<form>
+    Start date Greater then
+    <input type="date" name="startDateG" id ="startDateGr">
+    <input type="button" name="forRateG" onclick="dateStartG()" value="Click">
+    Start Date Less then
+    <input type="date" name="startDateL" id ="startDateLs">
+    <input type="button" name="forRateL" onclick="dateStartL()" value="Click">
+    Maturity Date Greater then
+    <input type="date" name="matDateG" id ="maturityDateG">
+    <input type="button" name="forMatDateG" onclick="dateMatG()" value="Click">
+    Maturity Date Less then
+    <input type="date" name="matDateL" id ="maturityDateL">
+    <input type="button" name="forMatDateL" onclick="dateMatL()" value="Click">
+    Rate Greater
+    <input type="number" name="rate" id="rateG">
+    <input type="button" name="forRateG" onclick="rateGr()" value="Click">
+    Rate Less
+    <input type="number" name="rate" id="rateL">
+    <input type="button" name="forRateL" onclick="rateLe()" value="Click">
+    Sum Gretater
+    <input type="number" name="sum" id = "sta">
+    <input type="button" name="forSum" onclick="myFunction()" value="Click">
+    Sum Less then
+    <input type="number" name="sum" id = "staT">
+    <input type="button" name="forSumL" onclick="myFunctionLess()" value="Click">
+    Days Greater
+    <input type="number" name="days" id="daysFilter">
+    <input type="button" name="forDaysG" onclick="daysGreater()" value="Click">
+    Days Less
+    <input type="number" name="days" id="daysFilterL">
+    <input type="button" name="forDaysL" value="Click" onclick="daysLess()">
+    Interest rate
+    <input type="number" name="intrate" id="greaterInt">
+    <input type="button" name="forInteG" onclick="interestGr()" value="Click">
+</form>
+
+<script src="sort.js"></script>
+
+
+<script src="filter.js"></script>
+</body>
+</html>
